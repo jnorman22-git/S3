@@ -1,7 +1,11 @@
-AWSTemplateFormatVersion: 2019-09-09
-Resorces:
+# Description: Corrected AWS S3 CloudFormation template validtion errors
+# Revision: 1.0
+# Date: 2026-05-28
+
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
   S3Bucket:
-    Type: 'AWS:S3:Bucket'
+    Type: 'AWS::S3::Bucket'
     Properties:
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
@@ -11,10 +15,10 @@ Resorces:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
-    DeletionPolicy: Retain
-    UpdateReplacePolicy: Retain
-BucketPolicy:
-    #Type: 'AWS::S3::BucketPolicy'
+        DeletionPolicy: Retain
+        UpdateReplacePolicy: Retain
+  BucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
     Properties:
       PolicyDocument:
         Id: MyPolicy
